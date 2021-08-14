@@ -1,0 +1,127 @@
+
+
+/*------------------------ section------------------------  */
+.section-item-1 {
+    --col-number: 4;
+    --space-col: 12px;
+}
+.section-item {
+    padding: 40px 0;
+}
+
+.section-item a {
+    display: block;
+}
+.section-item-1 a {
+    display: flex;
+    align-items: center;
+}
+.section-item__heading {
+    font-size: 3.2rem;
+    margin-bottom: 24px;
+}
+.nearest-place-item {
+    display: flex;
+    align-items: center;
+}
+
+.nearest-place-item + .nearest-place-item {
+    margin-top: 18px;
+
+}
+
+.nearest-place-item-img img {
+    width: 64px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.nearest-place-item-info {
+    font-size: 1.5rem;
+}
+
+.nearest-place-item-name {
+    font-size: 1.5rem;
+}
+
+.nearest-place-item-drive-hour {
+    display: block;
+    margin-top: 4px;
+}
+
+.section-item-2 {
+    --col-number: 4;
+    --space-col: 9px;
+}
+
+.section-item-2-img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.section-item-2-text {
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.section-item-2-banner {
+    --size: 360px;
+    background: url(../img/banner.jpg) center/ cover no-repeat;
+    height: var(--size);
+    border-radius: 16px;
+    color: var(--white-color);
+    padding: 0 76px;
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.section-item-2-banner-container {
+    max-width: var(--size);
+    line-height: 1.5;
+}
+
+.section-item-2-banner-heading {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.section-item-2-banner-content {
+    font-size: 1.6rem;
+    margin: 16px 0;
+}
+
+.section-item-2-banner-btn {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    background-color: var(--white-color);
+    border-radius: 8px;
+}
+
+.section-item-3 {
+    --col-number: 3;
+    --space-col: 9px;
+}
+
+.section-item-3-img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.section-item-3-content {
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+.section-item-3-content-heading {
+    font-size: 1.7rem;
+}
+
+.section-item-3-content-text {
+    font-size: 1.4rem;
+    margin-top: 4px;
+}
+
+/*------------------------Footer---------------------*/

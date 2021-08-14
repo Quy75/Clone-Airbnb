@@ -1,0 +1,163 @@
+.header {
+    height: auto;
+    background: none;
+}
+
+.section-top {
+    margin-top: 136px;
+    border-bottom: 1px solid #eee;
+}
+
+
+.section-top__heading {
+    font-size: 3.2rem;
+    margin-bottom: 56px;
+}
+
+.btn {
+    --height: 48px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    height: var(--height);
+    line-height: var(--height);
+    display: inline-block;
+    padding: 0 20px;
+    border-radius: 8px;
+    border: 1px solid #000;
+}
+
+.btn.btn--black {
+    color: var(--white-color);
+    background-color: #000;
+}
+
+.btn.btn--black:hover {
+    background-color: #000;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #f7f7f7;
+}
+
+.section-top__btn {
+    margin-bottom: 18px;
+}
+
+.section-body {
+    padding: 36px 0;
+}
+
+.section-body img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.section-body__item__heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.section-body__item-list {
+    --col-number: 3;
+    --space-col: 12px;
+    margin-top: 24px;
+}
+
+.section-body__item-col {
+    margin-bottom: 32px;
+}
+
+.section-body__item__child-container {
+    display: block;
+
+}
+
+.section-body__item__child {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-body__item__child-img {
+    --space: 1px;
+    display: flex;
+    margin: 0 calc(-1 * var(--space));
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.section-body__item__child-left {
+    width: 256px;
+    flex-shrink: 0;
+}
+
+.section-body__item__child-left img {
+    height: 100%;
+}
+
+.section-body__item__child-right {
+    --space: 1px;
+    display: flex;
+    flex-direction: column;
+    margin: calc(-1 * var(--space)) 0;
+}
+
+.section-body__item__child-right img {
+    flex: 1;
+    padding: var(--space) 0;
+}
+
+.section-body__item__child-left,
+.section-body__item__child-right {
+    padding: 0 var(--space);
+}
+
+.section-body__item__child-name {
+    margin-top: 22px;
+    font-size: 1.6rem;
+}
+
+
+/*-------------------Responsive------------------*/
+
+@media (min-width: 740px) and (max-width: 1023px) {
+    .section-body__item-list {
+        --col-number: 2;
+    }
+
+}
+
+@media (max-width: 739px) {
+    .section-top {
+        margin-top: 64px;
+    }
+
+    .section-body {
+        padding-bottom: 100px;
+    }
+
+    .section-top__heading {
+        margin-bottom: 32px;
+    }
+
+    .section-top__btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-body__item-list {
+        --col-number: 1;
+    }
+
+    .footer {
+        display: none;
+    }
+}
+
+@media (max-width: 410px) {
+    .section-body__item__child-left {
+        width: 200px;
+    }
+}
