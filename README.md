@@ -1,5 +1,2 @@
--Header: main-header: fixed, sub-header
+My project: Clone Airbnb
 
-
-Bug:
--icon footer-bottom
