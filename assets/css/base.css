@@ -381,7 +381,7 @@ body.disabled-scroll {
     border-radius: 32px;
     height: 66px;
     min-width: 850px;
-    z-index: 10;
+    z-index: 9;
 }
 
 .main-header--fixed .header__search {
