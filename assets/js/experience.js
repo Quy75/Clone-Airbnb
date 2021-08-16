@@ -3,7 +3,6 @@
 const headerRightBtn = document.querySelector('.header__right-button');
 const headerMobile = document.querySelector('.header-mobile');
 let headerTop = document.querySelector('.header-top');
-let headerMainFixed = document.querySelector('.main-header--fixed');
 let headerMiddleFixed = document.querySelector('.header__middle-fixed');
 let headerMiddleNormal = document.querySelector('.header__middle-normal');
 let overlay = document.querySelector('.overlay');
@@ -34,10 +33,6 @@ function notTarget(e) {
     if (userSub.classList.contains('display') && (!userSub.contains(e.target)) && (!user.contains(e.target))) {
         userSub.classList.remove('display');
     }
-
-    /**------------------Modal Language - currency--------------- */
-    
-    
 }
 
 document.onclick = notTarget;
@@ -203,11 +198,161 @@ for (const item of navbarMobileItems) {
 
 
 /**----------------scroll----------------- */
+const headerCategoryContainer = document.querySelector('.header__category__container');
+const initialPosition = headerCategoryContainer.getBoundingClientRect().top;
 
 window.onscroll = function () {
-    if (window.scrollY > 0) {
-        headerTop.classList.add('main-header--fixed');
-        headerMainFixed = document.querySelector('.main-header--fixed');
-        /**-------------Header Mobile--------------- */
-    }  
+    if (headerCategoryContainer.getBoundingClientRect().top <= 20) {
+        if (!headerCategoryContainer.classList.contains('fixed')) {
+            headerCategoryContainer.classList.add('fixed')
+        }
+    }
+    if (window.scrollY <= 615) {
+        if (headerCategoryContainer.classList.contains('fixed')) {
+            headerCategoryContainer.classList.remove('fixed')
+        }
+    }
+
+}
+
+function displayElement(element) {
+    element.classList.add('display');
+}
+
+function removeDisplayElement(element) {
+    if (element.classList.contains('display')) {
+        element.classList.remove('display');
+    }
+}
+
+function hideElement(element) {
+    element.classList.add('hide');
+}
+
+function removeHideElement(element) {
+    if (element.classList.contains('hide')) {
+        element.classList.remove('hide');
+    }
+}
+
+/**--------------------------------Slide---------------------------------------- */
+
+function addDisabled(element) {
+    element.classList.add('btn__control--disabled');
+}
+
+function removeDisabled(element) {
+    if (element.classList.contains('btn__control--disabled')) {
+        element.classList.remove('btn__control--disabled');
+    }
+}
+
+const headerSlideAfterBtn = document.querySelector('.header__category__control-after');
+const headerSlideAfterBtnContainer = document.querySelector('.header__category__control-after-container');
+const headerSlidePrevBtnContainer = document.querySelector('.header__category__control-prev-container');
+
+
+let headerCategoryList = document.querySelector('.header__category__list');
+headerSlideAfterBtn.onclick = function () {
+    const oldMargin = headerCategoryList.style.marginLeft;
+    const oldMarginNum = oldMargin.substr(0, oldMargin.length-1);
+    headerCategoryList.style.marginLeft = oldMarginNum -  10 + '%';
+    if (!headerSlidePrevBtnContainer.classList.contains('display')) {
+        displayElement(headerSlidePrevBtnContainer);
+    }
+    const lastChildProp = headerCategoryList.children[headerCategoryList.children.length - 1].getBoundingClientRect();
+    const wideProp = document.querySelector('.wide').getBoundingClientRect();
+    if ((wideProp.right - headerSlideAfterBtn.clientWidth) > (lastChildProp.right - headerCategoryList.clientWidth * 0.1)) {
+        hideElement(headerSlideAfterBtnContainer);
+    }
+    
+}
+
+const headerSlidePrevBtn = document.querySelector('.header__category__control-prev');
+headerSlidePrevBtn.onclick = function () {
+    const oldMargin = headerCategoryList.style.marginLeft;
+    const oldMarginNum = oldMargin.substr(0, oldMargin.length-1);
+    headerCategoryList.style.marginLeft = +oldMarginNum + 10 + '%';
+    if (oldMarginNum >= -10) {
+        removeDisplayElement(headerSlidePrevBtnContainer);
+    }
+    if (headerSlideAfterBtnContainer.classList.contains('hide')) {
+        removeHideElement(headerSlideAfterBtnContainer);
+    }
+}
+
+/**----------------Slide for image---------------- */
+
+/**----------------Disabled btn --------------------*/
+const controlLeftBtns = document.querySelectorAll('.btn__control-left');
+
+for (const item of controlLeftBtns) {
+    const slideElement = item.parentNode.parentElement.nextElementSibling;
+    const oldMargin = slideElement.style.marginLeft;
+    const oldMarginNum = oldMargin.substr(0, oldMargin.length-1);
+    if (!oldMarginNum) {
+        addDisabled(item);
+    }
+}
+
+
+const controlRightBtns = document.querySelectorAll('.btn__control-right');
+for (const item of controlRightBtns) {
+    const slideElement = item.parentNode.parentElement.nextElementSibling;
+    const lastChildProp = slideElement.children[slideElement.children.length - 1].getBoundingClientRect();
+    const wideProp = document.querySelector('.wide').getBoundingClientRect();
+
+    if (lastChildProp.right - 9 <= wideProp.right) {
+        addDisabled(item);
+    }
+}
+
+/**----------------------------Right Btn------------------------------------------------------- */
+const rightBtnNotDisabled = document.querySelectorAll('.btn__control-right:not(.btn__control--disabled)');
+
+for (const item of rightBtnNotDisabled) {
+    
+    item.onclick = function () {
+        if (!item.classList.contains('btn__control--disabled')) {
+            const slideElement = item.parentNode.parentElement.nextElementSibling;
+            const firstChild = slideElement.children[0];
+            const oldMargin = firstChild.style.marginLeft;
+            const oldMarginNum = oldMargin.substr(0, oldMargin.length-2);
+            const lastChildProp = slideElement.children[slideElement.children.length - 1].getBoundingClientRect();
+            const wideProp = document.querySelector('.wide').getBoundingClientRect();
+            firstChild.style.marginLeft = +oldMarginNum -  firstChild.clientWidth + 'px';
+            
+            const prevBtn = item.previousElementSibling;
+            removeDisabled(prevBtn);
+
+            if (lastChildProp.right - lastChildProp.width - 9 <= wideProp.right) {
+                addDisabled(item);
+            }
+        }
+    }
+}
+
+/**------------------------Left btn--------------------- */
+
+const leftBtn = document.querySelectorAll('.btn__control-left');
+
+for (const item of leftBtn) {
+    
+    item.onclick = function () {
+        if (!item.classList.contains('btn__control--disabled')) {
+            const slideElement = item.parentNode.parentElement.nextElementSibling;
+            const firstChild = slideElement.children[0];
+            const oldMargin = firstChild.style.marginLeft;
+            const oldMarginNum = oldMargin.substr(0, oldMargin.length-2);
+            const lastChildProp = slideElement.children[slideElement.children.length - 1].getBoundingClientRect();
+            const wideProp = document.querySelector('.wide').getBoundingClientRect();
+            firstChild.style.marginLeft = +oldMarginNum +  firstChild.clientWidth + 'px';
+            const afterBtn = item.nextElementSibling;
+            removeDisabled(afterBtn); 
+            if (firstChild.style.marginLeft.substr(0, firstChild.style.marginLeft.length-2) >= 0) {
+                addDisabled(item);
+            }
+
+        }
+    }
 }

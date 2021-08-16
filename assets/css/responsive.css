@@ -156,6 +156,14 @@
         border-bottom: 1px solid #DDD;
     }
 
+    .footer__bottom {
+        padding-bottom: 100px;
+    }
+
+    .footer__bottom__social-item {
+        padding: 14px;
+    }
+
     .footer__bottom__copyright {
         display: flex;
         flex-direction: column;
@@ -168,6 +176,10 @@
     
     .header-mobile {
         display: flex;
+    }
+
+    .language-currency-modal {
+        max-height: 60vh;
     }
 
     .modal-item {
@@ -191,6 +203,10 @@
         width: unset;
         max-height: unset;
         border-radius: 0px;
+    }
+
+    .login-register-form__body__social {
+        padding-bottom: 60px;
     }
 
     .login-register-form__head__icon {

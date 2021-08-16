@@ -44,6 +44,15 @@ button:hover {
     margin: 0 auto;
 }
 
+.fixed {
+    position: fixed!important;
+    top: 0 !important;
+    left: 0!important;
+    right: 0!important;
+    bottom: initial!important;
+    z-index: 100;
+}
+
 .hide {
     display: none !important;
 }
@@ -950,12 +959,16 @@ body.disabled-scroll {
     margin: 0 40px 0 20px;
 }
 
+.footer__bottom__social-item {
+    padding: 12px;
+}
+
 .footer__bottom__social-item:hover {
     opacity: 0.7;
 }
 
 .footer__bottom__social i {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .footer__bottom__social-item + .footer__bottom__social-item {

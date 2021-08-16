@@ -124,7 +124,6 @@ const listDay = document.querySelectorAll('.take-room-sub__date__calendar__body 
 for (const day of listDay) {
     day.onclick = function () {
         const activeDay = document.querySelector('.take-room-sub__date__calendar__column--active');
-        
 
         const dayItem = day.parentElement.parentElement.parentElement.parentElement;
         const currentMonth = dayItem.querySelector('.take-room-sub__date__navbar-date');
@@ -142,26 +141,6 @@ for (const day of listDay) {
         
         const currentParent = day.parentElement;
         const calenderRows = currentParent.parentElement.children;
-
-        for (const calenderRow of calenderRows) {
-            if (calenderRow === currentParent) {
-                for (const calenderColumn of calenderRow.children) {
-                    if (calenderColumn === day) {
-                        break;
-                    }
-                    else {
-                        calenderColumn.classList.add('take-room-sub__date__calendar__column--disabled')
-                    }
-                }
-                break;
-            } else {
-                for (const calenderColumn of calenderRow.children) {
-                    if(!calenderColumn.classList.contains('take-room-sub__date__calendar__column--disabled')) {
-                        calenderColumn.classList.add('take-room-sub__date__calendar__column--disabled')
-                    }
-                }
-            }
-        }
 
         day.classList.add('take-room-sub__date__calendar__column--active');
         searchItemContent.classList.add('hide');
@@ -407,7 +386,8 @@ const headerRightUserLinks = document.querySelectorAll('.header__right-user-sub-
 const loginResForm = document.querySelector('.login-register-form');
 const formClose = document.querySelector('.login-register-form__head__icon');
 for (const item of headerRightUserLinks) {
-    item.onclick = function () {
+    item.onclick = function (e) {
+         
         overlay.classList.add('z-11');
         overlay.classList.add('display');
         loginResForm.classList.add('display');
