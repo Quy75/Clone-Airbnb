@@ -174,13 +174,6 @@
         margin-top: 12px;
     }
 
-    .footer__bottom__social {
-        flex-wrap: wrap;
-    }
-
-    .footer__bottom__social-link {
-        margin-top: 12px;
-    }
 
     .footer__bottom__languages {
         margin-left: 42px;
@@ -223,6 +216,16 @@
 
     .login-register-form__head__icon {
         display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .footer__bottom__social {
+        flex-wrap: wrap;
+    }
+
+    .footer__bottom__social-link {
+        margin-top: 12px;
     }
 }
 
