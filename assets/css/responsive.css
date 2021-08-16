@@ -173,6 +173,18 @@
     .footer__bottom__links {
         margin-top: 12px;
     }
+
+    .footer__bottom__social {
+        flex-wrap: wrap;
+    }
+
+    .footer__bottom__social-link {
+        margin-top: 12px;
+    }
+
+    .footer__bottom__languages {
+        margin-left: 42px;
+    }
     
     .header-mobile {
         display: flex;
